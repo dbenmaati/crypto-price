@@ -1,0 +1,69 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+
+# Laravel specific
+/vendor
+/node_modules
+/public/storage
+/public/hot
+/public/mix-manifest.json
+/public/css
+/public/js
+/public/build
+/storage/*.key
+/storage/app/public
+/storage/debugbar
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+/storage/logs
+
+# Environment files
+/.env
+/.env.*.php
+
+# IDE files
+/.idea
+/.vscode
+
+# Composer & NPM
+composer.lock
+npm-debug.log
+yarn-error.log
+yarn.lock
+
+# Laravel Telescope
+/telescope/*.sqlite
+
+# Laravel Horizon
+/horizon/*.sqlite
+
+# Cache and logs
+/.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+.env.backup
+.env.local
+
+# Other potentially sensitive or machine-specific files
+/.DS_Store
+Thumbs.db
+
