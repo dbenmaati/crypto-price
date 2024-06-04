@@ -13,6 +13,21 @@ return new class extends Migration
     {
         Schema::create('coins', function (Blueprint $table) {
             $table->id();
+            $table->string('slug',100);
+            $table->string('name',100);
+            $table->string('symbol',100);
+            $table->string('logo',100);
+            $table->text('description');
+
+            $table->string('website',100);
+            $table->string('whitepaper',100);
+
+            $table->string('twitter',100);
+            $table->string('telegram',100);
+            $table->string('discord',100);
+            $table->string('explored',100);
+
+
             $table->timestamps();
         });
     }
