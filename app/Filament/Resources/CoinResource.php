@@ -127,5 +127,10 @@ class CoinResource extends Resource
             'create' => Pages\CreateCoin::route('/create'),
             'edit' => Pages\EditCoin::route('/{record}/edit'),
         ];
-    }    
+    }  
+    
+    public static function canCreate(): bool
+    {
+        return false;
+    }
 }

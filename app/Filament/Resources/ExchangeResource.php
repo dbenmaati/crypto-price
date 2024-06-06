@@ -102,5 +102,10 @@ class ExchangeResource extends Resource
             'create' => Pages\CreateExchange::route('/create'),
             'edit' => Pages\EditExchange::route('/{record}/edit'),
         ];
-    }    
+    } 
+    
+    public static function canCreate(): bool
+    {
+        return false;
+    }
 }
