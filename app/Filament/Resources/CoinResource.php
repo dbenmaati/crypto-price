@@ -10,8 +10,12 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\ImageColumn;
+use Illuminate\Support\Facades\Storage;
+
 
 class CoinResource extends Resource
 {
@@ -26,18 +30,16 @@ class CoinResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(100),
-                Forms\Components\TextInput::make('rank')
-                    ->required()
-                    ->numeric(),
+                //Forms\Components\TextInput::make('rank')
+                //    ->required()
+                //    ->numeric(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(100),
                 Forms\Components\TextInput::make('symbol')
                     ->required()
                     ->maxLength(100),
-                Forms\Components\TextInput::make('logo')
-                    ->required()
-                    ->maxLength(100),
+                Forms\Components\FileUpload::make('logo'),
                 Forms\Components\Textarea::make('description')
                     ->maxLength(65535)
                     ->columnSpanFull(),
@@ -63,30 +65,27 @@ class CoinResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('rank')
+                Tables\Columns\TextColumn::make('rank')->toggleable()
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\ImageColumn::make('logo')->disk('coins'),
+                Tables\Columns\TextColumn::make('name')->toggleable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('symbol')
+                Tables\Columns\TextColumn::make('symbol')->toggleable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('logo')
+                Tables\Columns\TextColumn::make('website')->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('website')
+                Tables\Columns\TextColumn::make('whitepaper')->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('whitepaper')
+                Tables\Columns\TextColumn::make('twitter')->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('twitter')
+                Tables\Columns\TextColumn::make('telegram')->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('telegram')
+                Tables\Columns\TextColumn::make('discord')->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('discord')
+                Tables\Columns\TextColumn::make('explorer')->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('explorer')
-                    ->searchable(),
-                Tables\Columns\IconColumn::make('confirmed')
+                Tables\Columns\IconColumn::make('confirmed')->toggleable()
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -95,7 +94,7 @@ class CoinResource extends Resource
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(),
             ])
             ->filters([
                 //
