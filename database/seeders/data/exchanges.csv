@@ -1,0 +1,74 @@
+slug,rank,name,logo,description,website,confirmed
+binance,1,Binance,base-logo.png,NULL,https://www.binance.com/,1
+gdax,2,Coinbase Pro,base-logo.png,NULL,https://pro.coinbase.com/,1
+gate,3,Gate,base-logo.png,NULL,https://gate.io/,1
+whitebit,4,WhiteBIT,base-logo.png,NULL,https://whitebit.com,1
+digifinex,5,DigiFinex,base-logo.png,NULL,https://www.digifinex.com/,1
+kraken,6,Kraken,base-logo.png,NULL,https://kraken.com,1
+bitmax,7,AscendEX (Bitmax),base-logo.png,NULL,https://www.bitmax.io/,1
+crypto,8,Crypto.com Exchange,base-logo.png,NULL,https://api.crypto.com/,1
+uniswap-v3,9,Uniswap (V3),base-logo.png,NULL,https://uniswap.org/,1
+bigone,10,BigONE,base-logo.png,NULL,https://big.one/,1
+kucoin,11,Kucoin,base-logo.png,NULL,https://www.kucoin.io/,1
+currency-com,12,Currency.com,base-logo.png,NULL,https://currency.com/,1
+bibox,13,Bibox,base-logo.png,NULL,https://www.bibox.com,1
+probit,14,ProBit,base-logo.png,NULL,https://www.probit.com/en-us/,1
+bitstamp,15,Bitstamp,base-logo.png,NULL,https://www.bitstamp.net/,1
+tidex,16,Tidex,base-logo.png,NULL,https://tidex.com/,1
+huobi,17,Huobi,base-logo.png,NULL,https://www.hbg.com/,1
+yobit,18,YoBit,base-logo.png,NULL,https://yobit.net,1
+lbank,19,LBank,base-logo.png,NULL,https://www.lbank.info,1
+bitfinex,20,Bitfinex,base-logo.png,NULL,https://bitfinex.com,1
+hitbtc,21,HitBTC,base-logo.png,NULL,https://hitbtc.com/,1
+bitflyer,22,Bitflyer,base-logo.png,NULL,https://bitflyer.com/,1
+coincheck,23,coincheck,base-logo.png,NULL,https://coincheck.com/,1
+gemini,24,Gemini,base-logo.png,NULL,https://gemini.com/,1
+btcturk,25,BTCTurk,base-logo.png,NULL,https://www.btcturk.com/,1
+independentreserve,26,Independent Reserve,base-logo.png,NULL,https://www.independentreserve.com/,1
+exmo,27,Exmo,base-logo.png,NULL,https://www.exmo.com/,1
+dex-trade,28,Dex-Trade,base-logo.png,NULL,https://dex-trade.com/,1
+bitso,29,Bitso,base-logo.png,NULL,https://www.bitso.com/,1
+coinex,30,CoinEx,base-logo.png,NULL,https://www.coinex.com/,1
+alterdice,31,Alterdice,base-logo.png,NULL,https://alterdice.com/,1
+uniswap,32,Uniswap (V2),base-logo.png,NULL,https://www.uniswap.io/,1
+bitkub,33,Bitkub,base-logo.png,NULL,https://www.bitkub.com/,1
+bitbank,34,Bitbank,base-logo.png,NULL,https://www.bibank.com,1
+itbit,35,Itbit,base-logo.png,NULL,https://www.itbit.com/,1
+mercatox,36,Mercatox,base-logo.png,NULL,https://mercatox.com/,1
+indodax,37,Indodax,base-logo.png,NULL,https://indodax.com/,1
+max-exchange,38,Max,base-logo.png,NULL,https://max.maicoin.com/,1
+luno,39,Luno,base-logo.png,NULL,https://www.luno.com/,1
+binanceus,40,Binance.US,base-logo.png,NULL,https://www.binance.us/,1
+sushi,41,SushiSwap,base-logo.png,NULL,https://sushi.com/,1
+btcmarket,42,BTCMarket,base-logo.png,NULL,https://www.btcmarkets.net/,1
+wazirx,43,WazirX,base-logo.png,NULL,https://wazirx.com/,1
+btcbox,44,BTCBOX,base-logo.png,NULL,https://www.btcbox.co.jp,1
+coinmate,45,Coinmate,base-logo.png,NULL,https://coinmate.io/,1
+paribu,46,Paribu,base-logo.png,NULL,https://www.paribu.com/,1
+gopax,47,GOPAX,base-logo.png,NULL,https://www.gopax.co.kr/,1
+cex,48,Cex,base-logo.png,NULL,https://www.cex.io/,1
+btctradeua,49,BTC Trade UA,base-logo.png,NULL,https://btc-trade.com.ua/,1
+cointiger,59,CoinTiger,base-logo.png,NULL,https://www.cointiger.com/,1
+exmarkets,60,ExMarkets,base-logo.png,NULL,https://exmarkets.com/,1
+hotbit,61,Hotbit,base-logo.png,NULL,https://www.hotbit.io/,1
+kickex,62,KickEX,base-logo.png,NULL,https://kickex.com,1
+kuna,63,Kuna,base-logo.png,NULL,https://kuna.io/,1
+mxc-com,64,MXC.COM,base-logo.png,NULL,https://www.mxc.com/,1
+okcoin,65,OkCoin,base-logo.png,NULL,https://www.okcoin.com,1
+okex,66,Okex,base-logo.png,NULL,https://www.okex.com/,1
+osmosis,67,Osmosis,base-logo.png,NULL,https://app.osmosis.zone/,1
+poloniex,68,Poloniex,base-logo.png,NULL,https://poloniex.com/,1
+therocktrading,71,The Rock Trading,base-logo.png,NULL,https://www.therocktrading.com,1
+thorchain,72,THORChain,base-logo.png,NULL,https://thorchain.org/,1
+bittrex,55,Bittrex,base-logo.png,NULL,https://bittrex.com/,1
+zaif,73,Zaif,base-logo.png,NULL,https://zaif.jp/,1
+coinbene,58,Coinbene,base-logo.png,NULL,https://www.coinbene.com,1
+zb,50,ZB,base-logo.png,NULL,https://www.zb.com/,1
+bitbay,51,BitBay,base-logo.png,NULL,https://bitbay.net,1
+bithumbglobal,52,Bithumb Global,base-logo.png,NULL,https://www.bithumb.pro/,1
+bitpanda-pro,53,Bitpanda Pro,base-logo.png,NULL,https://www.bitpanda.com/en/pro,1
+bkex,56,Bkex,base-logo.png,NULL,https://www.bkex.com/,1
+blockchain-com,57,Blockchain.com,base-logo.png,NULL,https://blockchain.com/,1
+bitrue,54,Bitrue,base-logo.png,NULL,https://www.bitrue.com/,1
+qryptos,69,Liquid,base-logo.png,NULL,https://www.qryptos.com/,1
+quoine,70,Quoine,base-logo.png,NULL,https://quoine.com/,1

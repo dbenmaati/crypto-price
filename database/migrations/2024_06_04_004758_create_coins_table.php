@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('coins', function (Blueprint $table) {
             $table->id();
-            $table->string('slug',100);
+            $table->string('slug',255);
             $table->integer('rank'); 
-            $table->string('name',100);
-            $table->string('symbol',100);
-            $table->string('logo',100);
+            $table->string('name',255);
+            $table->string('symbol',255);
+            $table->string('logo',255);
             $table->text('description')->nullable();
 
-            $table->string('website',100)->nullable();
-            $table->string('whitepaper',100)->nullable();
+            $table->string('website',255)->nullable();
+            $table->string('whitepaper',255)->nullable();
 
-            $table->string('twitter',100)->nullable();
-            $table->string('telegram',100)->nullable();
-            $table->string('discord',100)->nullable();
-            $table->string('explorer',100)->nullable();
+            $table->string('twitter',255)->nullable();
+            $table->string('telegram',255)->nullable();
+            $table->string('discord',255)->nullable();
+            $table->string('explorer',255)->nullable();
 
             $table->boolean('confirmed')->default(true);
 

@@ -9,4 +9,6 @@ class Coin extends Model
 {
     use HasFactory;
     protected $fillable = ['slug',];
+
+    public $timestamps = true;
 }

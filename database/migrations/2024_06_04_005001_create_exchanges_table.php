@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('exchanges', function (Blueprint $table) {
             $table->id();
-            $table->string('slug',100);
+            $table->string('slug',255);
             $table->integer('rank'); 
-            $table->string('name',100);
-            $table->string('logo',100);
+            $table->string('name',255);
+            $table->string('logo',255);
             $table->text('description')->nullable();
-            $table->string('website',100);
+            $table->string('website',255);
 
             $table->boolean('confirmed')->default(true);
             
