@@ -17,6 +17,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Navigation\NavigationItem;
+use App\Filament\Resources\SettingResource;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -50,6 +52,13 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+            ])
+            ->navigationItems([
+                NavigationItem::make('Settings')
+                    ->url('/admin/settings/1/edit')
+                    ->icon('heroicon-o-cog-6-tooth')
+                    ->sort(3),
+                    //->visible(fn (): bool => auth()->user()?->user_type == 'admin'), 
             ])
             ->authMiddleware([
                 Authenticate::class,

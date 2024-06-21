@@ -27,6 +27,30 @@ return new class extends Migration
         // Insert initial pages
         DB::table('pages')->insert([
             [
+                'page_name' => 'Coins',
+                'meta_title' => 'Coins',
+                'meta_description' => 'Stay updated with accurate information on popular cryptocurrencies and their market trends.',
+                'meta_keywords' => 'crypto, coins, bitcoin, eth, bsc',
+                'content' => 'NULL',
+                'header_menu_show' => true,
+                'footer_menu_show' => true,
+                'slug' => '/',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'page_name' => 'Exchanges',
+                'meta_title' => 'Exchanges',
+                'meta_description' => 'Discover a curated listing of top cryptocurrency exchanges on our platform',
+                'meta_keywords' => 'crypto, exchanges, bitcoin, eth, bsc',
+                'content' => 'This is the About Us page content.',
+                'header_menu_show' => true,
+                'footer_menu_show' => true,
+                'slug' => '/exchanges',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
                 'page_name' => 'About Us',
                 'meta_title' => 'About Us',
                 'meta_description' => 'Learn more about us.',
@@ -34,7 +58,7 @@ return new class extends Migration
                 'content' => 'This is the About Us page content.',
                 'header_menu_show' => false,
                 'footer_menu_show' => true,
-                'slug' => 'about-us',
+                'slug' => '/about-us',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -46,7 +70,7 @@ return new class extends Migration
                 'content' => 'This is the Terms of Service page content.',
                 'header_menu_show' => false,
                 'footer_menu_show' => true,
-                'slug' => 'terms-of-service',
+                'slug' => '/terms-of-service',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -58,7 +82,7 @@ return new class extends Migration
                 'content' => 'This is the Privacy Policy page content.',
                 'header_menu_show' => false,
                 'footer_menu_show' => true,
-                'slug' => 'privacy-policy',
+                'slug' => '/privacy-policy',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -70,7 +94,7 @@ return new class extends Migration
                 'content' => 'This is the Contact Us page content.',
                 'header_menu_show' => false,
                 'footer_menu_show' => true,
-                'slug' => 'contact-us',
+                'slug' => '/contact-us',
                 'created_at' => now(),
                 'updated_at' => now()
             ]

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoinController;
+use App\Http\Controllers\ExchangeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// home - Calendar
+Route::get('/', [CoinController::class, 'index'])->name('coins.home');
+Route::get('/coin/{slug}', [CoinController::class, 'single'])->name('ico.single');
+
+Route::get('/exchanges', [ExchangeController::class, 'index'])->name('exchange.home');
+Route::get('/exchanges/{slug}', [ExchangeController::class, 'single'])->name('exchange.single');
