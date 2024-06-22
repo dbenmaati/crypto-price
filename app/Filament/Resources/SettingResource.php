@@ -12,6 +12,8 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\ImageColumn;
+use Illuminate\Support\Facades\Storage;
 
 class SettingResource extends Resource
 {
@@ -24,8 +26,9 @@ class SettingResource extends Resource
                 Forms\Components\TextInput::make('site_title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('site_logo')
-                    ->maxLength(255),
+                    Forms\Components\FileUpload::make('site_logo')
+                    ->image()
+                    ->preserveFilenames(),
                 Forms\Components\TextInput::make('site_favicon')
                     ->maxLength(255),
                 Forms\Components\Textarea::make('meta_description')
@@ -45,7 +48,6 @@ class SettingResource extends Resource
                 Forms\Components\TextInput::make('linkedin')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('telegram')
-                    ->tel()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('discord')
                     ->maxLength(255),

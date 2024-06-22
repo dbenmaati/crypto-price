@@ -25,7 +25,7 @@
       </div>
     </section>
     <!-- End Banner Top -->
-
+    @if ($coins->onFirstPage())
     <section class="crypto" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <div class="row">
@@ -83,8 +83,10 @@
     </section>
 
     <br><br><br>
-    <br><br><br>
+    @endif
 
+    <br><br><br>
+    
     <section class="coin-list">
       <div class="container">
         <div class="row">
@@ -133,7 +135,8 @@
                   </div>
                 </div>
               </div>
-              <!-- pagination here TBD -->
+              <!-- Pagination -->
+              @include('includes.pagination')        
             </div>
           </div>
         </div>
@@ -150,58 +153,27 @@
             </div>
           </div>
 
+          @foreach ($posts as $post)
           <div class="col-md-4">
             <div class="blog-box">
               <div class="box-image">
-                <img src="assets/images/blog/blog-01.jpg" alt="" />
+              <img style="width: auto; height: 250px;" src="{{ Storage::disk('posts')->url($post->image) }}" alt="" />
               </div>
               <div class="box-content">
-                <a href="#" class="category btn-action">learn & earn</a>
-                <a href="" class="title">Learn about UI8 coin and earn an All-Access Pass</a>
+                <a href="#" class="category btn-action">{{ $post->title }}</a>
+                <br>
+                <a href="" class="title">{{ $post->title }}</a>
                 <div class="meta">
-                  <a href="#" class="time">Feb 03, 2021</a>
+                  <a href="#" class="time">{{ $post->updated_at }}</a>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-md-4">
-            <div class="blog-box">
-              <div class="box-image">
-                <img src="assets/images/blog/blog-01.jpg" alt="" />
-              </div>
-              <div class="box-content">
-                <a href="#" class="category btn-action">learn & earn</a>
-                <a href="" class="title">Learn about UI8 coin and earn an All-Access Pass</a>
-                <div class="meta">
-                  <a href="#" class="time">Feb 03, 2021</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="blog-box">
-              <div class="box-image">
-                <img src="assets/images/blog/blog-01.jpg" alt="" />
-              </div>
-              <div class="box-content">
-                <a href="#" class="category btn-action">learn & earn</a>
-                <a href="" class="title">Learn about UI8 coin and earn an All-Access Pass</a>
-                <div class="meta">
-                  <a href="#" class="time">Feb 03, 2021</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
+          @endforeach
           
           <div class="col-md-12">
             <div class="button-loadmore">
-              <a href="#">
-              
-                All Posts</a
-              >
+              <a href="#">All Posts</a>
             </div>
           </div>
         </div>

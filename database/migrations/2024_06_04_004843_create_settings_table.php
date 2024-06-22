@@ -43,8 +43,8 @@ return new class extends Migration
         // Insert initial data
         DB::table('settings')->insert([
             'site_title' => 'My Website',
-            'site_logo' => 'http://example.com/logo.png',
-            'site_favicon' => 'http://example.com/favicon.ico',
+            'site_logo' => '"site-logo.png"',
+            'site_favicon' => '"site-favicon.png"',
             'meta_description' => 'This is a meta description for my website.',
             'meta_keywords' => 'keywords, my, website',
             'contact_email' => 'contact@example.com',

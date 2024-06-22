@@ -8,11 +8,11 @@
                   <a class="light" href="index.html">
                     <img
                       id="site-logo"
-                      src="assets/images/logo/logo.png"
+                      src="{{ Storage::disk('public')->url($settings->site_logo) }}"
                       alt=""
                       width="118"
                       height="32"
-                      data-retina="assets/images/logo/logo@2x.png"
+                      data-retina="{{ Storage::disk('public')->url($settings->site_logo) }}"
                       data-width="118"
                       data-height="32"
                     />

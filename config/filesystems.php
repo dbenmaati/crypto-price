@@ -44,6 +44,22 @@ return [
             'throw' => false,
         ],
 
+        'posts' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/posts'),
+            'url' => env('APP_URL').'/storage/posts',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -71,6 +87,8 @@ return [
 
     'links' => [
         public_path('coins') => storage_path('app/public/coins'),
+        public_path('posts') => storage_path('app/public/posts'),
+        public_path('public') => storage_path('app/public'),
     ],
 
 ];

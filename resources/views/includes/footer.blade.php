@@ -72,9 +72,9 @@
       <div class="container-fluid">
         <div class="footer__bottom">
           <p>
-            ©2022 Rockie.com. All rights reserved. Terms of Service | Privacy
-            Terms
+            {{ $settings->footer }}
           </p>
         </div>
       </div>
     </footer>
+    {{ $settings->js_code }}

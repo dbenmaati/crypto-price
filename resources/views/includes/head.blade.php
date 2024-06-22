@@ -2,7 +2,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rockie | Crypto Exchange HTML Template</title>
+    <title>{{ $settings->site_title }} | Page Title</title>
 
     <!-- Style CSS -->
 
@@ -11,6 +11,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/swiper-bundle.min.css') }}" >
     <!-- End Style CSS -->
 
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ Storage::disk('public')->url($settings->site_favicon) }}" />
+    <link rel="apple-touch-icon-precomposed" href="{{ Storage::disk('public')->url($settings->site_favicon) }}" />
 </head>

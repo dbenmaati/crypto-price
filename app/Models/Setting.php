@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'site_title',
+        'site_logo',
+    ];
+
+    protected $casts = [
+        'site_logo' => 'array',
+    ];
 }
