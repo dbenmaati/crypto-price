@@ -19,11 +19,11 @@
                   </a>
                   <a class="dark" href="index.html">
                     <img
-                      src="assets/images/logo/logo-dark.png"
+                      src="{{ Storage::disk('public')->url($settings->site_logo) }}"
                       alt=""
                       width="118"
                       height="32"
-                      data-retina="assets/images/logo/logo-dark@2x.png"
+                      data-retina="{{ Storage::disk('public')->url($settings->site_logo) }}"
                       data-width="118"
                       data-height="32"
                     />
@@ -34,16 +34,19 @@
                     <ul id="menu-primary-menu" class="menu">
                       
                     @foreach ($pages as $page)
+                      @if ($page->header_menu_show)
                         @php
-                            $isActive = request()->is('/') && $page->slug === '/';
-                            if (! $isActive) {
-                                $isActive = request()->is(ltrim($page->slug, '/'));
-                            }
+                          $isActive = request()->is('/') && $page->slug === '/';
+                          if (! $isActive) {
+                            $isActive = request()->is(ltrim($page->slug, '/'));
+                          }
                         @endphp
                         <li class="{{ $isActive ? 'current-menu-item' : '' }}">
-                            <a href="{{ $page->slug }}">{{ $page->page_name }}</a>
+                          <a href="{{ $page->slug }}">{{ $page->page_name }}</a>
                         </li>
+                      @endif
                     @endforeach
+
                       
                     </ul>
                   </nav>

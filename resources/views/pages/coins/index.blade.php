@@ -164,7 +164,7 @@
                 <br>
                 <a href="" class="title">{{ $post->title }}</a>
                 <div class="meta">
-                  <a href="#" class="time">{{ $post->updated_at }}</a>
+                  <a href="#" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
                 </div>
               </div>
             </div>
