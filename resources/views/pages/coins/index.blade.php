@@ -118,16 +118,18 @@
                       <tbody>
                         @foreach ($coins as $coin)
                             <tr>
-                            <th scope="row"><span class="icon-star"></span></th>
-                            <td><img style="border-radius: 50%; width: 35px; height: 35px;" src="{{ Storage::disk('coins')->url($coin->logo) }}" class="coin-icon" alt="{{ $coin->name }}" /></td>
-                            <td>
-                                <span>{{ $coin->name }}</span>
-                                <span class="unit">{{ $coin->symbol }}</span>
-                            </td>
-                            <td class="boild" id="{{ $coin->slug }}-price" >price</td>
-                            <td class="up" id="{{ $coin->slug }}-priceChange1d" >change</td>
-                            <td class="boild" id="{{ $coin->slug }}-marketCap" >marketcap</td>
-                            <td><a href="#" class="btn">view</a></td>
+                              <th scope="row"><span class="icon-star"></span></th>
+                              <td><img style="border-radius: 50%; width: 35px; height: 35px;" src="{{ Storage::disk('coins')->url($coin->logo) }}" class="coin-icon" alt="{{ $coin->name }}" /></td>
+                              <td>
+                                <a href="/coin/{{ $coin->slug }}">
+                                  <span>{{ $coin->name }}</span>
+                                  <span class="unit">{{ $coin->symbol }}</span>
+                                </a>
+                              </td>
+                              <td class="boild"><a id="{{ $coin->slug }}-price" href="/coin/{{ $coin->slug }}">-</a></td>
+                              <td class="up">   <a id="{{ $coin->slug }}-priceChange1d" href="/coin/{{ $coin->slug }}">-</a></td>
+                              <td class="boild"><a id="{{ $coin->slug }}-marketCap" href="/coin/{{ $coin->slug }}">-</a></td>
+                              <td><a href="/coin/{{ $coin->slug }}" class="btn">view</a></td>
                             </tr>
                         @endforeach
                       </tbody>
@@ -136,7 +138,7 @@
                 </div>
               </div>
               <!-- Pagination -->
-              @include('includes.pagination')        
+              @include('includes.pagination_coins')        
             </div>
           </div>
         </div>
@@ -160,11 +162,11 @@
               <img style="width: auto; height: 250px;" src="{{ Storage::disk('posts')->url($post->image) }}" alt="" />
               </div>
               <div class="box-content">
-                <a href="#" class="category btn-action">{{ $post->title }}</a>
+                <a href="/blog/{{ $post->slug }}" class="category btn-action">{{ $post->title }}</a>
                 <br>
-                <a href="" class="title">{{ $post->title }}</a>
+                <a href="/blog/{{ $post->slug }}" class="title">{{ $post->title }}</a>
                 <div class="meta">
-                  <a href="#" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
+                  <a href="/blog/{{ $post->slug }}" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
                 </div>
               </div>
             </div>
@@ -173,7 +175,7 @@
           
           <div class="col-md-12">
             <div class="button-loadmore">
-              <a href="#">All Posts</a>
+              <a href="/blog">All Posts</a>
             </div>
           </div>
         </div>
@@ -191,8 +193,8 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.peity.min.js') }}"></script>
-    <script src="{{ asset('js/Chart.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/apexcharts.js') }}"></script>
+    <!-- <script src="{{ asset('js/Chart.bundle.min.js') }}"></script> -->
+    <!-- <script src="{{ asset('js/apexcharts.js') }}"></script> -->
     <script src="{{ asset('js/switchmode.js') }}"></script>
     <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
     

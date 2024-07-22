@@ -28,4 +28,16 @@ class CoinController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+
+    public function single($slug)
+    {
+        $coin = Coin::where('slug', $slug)->first();
+        $posts = Post::orderBy('updated_at', 'asc')->where('is_published', 1)->take(3)->get();
+        $pages = page::orderBy('created_at', 'asc')->get();
+        $settings = Setting::find(1);
+
+        return view('pages.coins.single', compact('coin', 'posts', 'pages', 'settings'));
+               
+    }
+
 }

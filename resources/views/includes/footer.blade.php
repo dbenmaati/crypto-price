@@ -70,7 +70,8 @@
           </div>
         </div>
       </div>
--->
+-->   
+      <br>
       <div class="container">
         <div style="justify-content: space-between; align-items: center; text-align:center;">  
           <ul style="display: flex; justify-content: center; align-items: center; font-size: 1.7em; padding: 0; margin: 0;">
@@ -84,7 +85,7 @@
             @isset($settings->medium)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->medium }}"><span class="fa-brands fa-medium"></span></a></li>@endisset
             @isset($settings->youtube)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->youtube }}"><span class="fa-brands fa-youtube"></span></a></li>@endisset
           </ul>
-
+          <br>
           <p>
             @foreach ($pages as $index => $page)
               @if ($page->footer_menu_show)
@@ -97,10 +98,14 @@
           <p>
             {{ $settings->footer }}
           </p>
-
+          <br>
         </div>
       </div>
     </footer>
-    <script>
-    {{ $settings->js_code }}
-    </script>
+    
+    @isset($settings->js_code)
+      <script>
+        {{ $settings->js_code }}
+      </script>
+    @endisset 
+    

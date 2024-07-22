@@ -25,66 +25,57 @@
       </div>
     </section>
     <!-- End Banner Top -->
-
+    @if ($exchanges->onFirstPage())
     <section class="crypto" data-aos="fade-up" data-aos-duration="1000">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
+          <h3 class="heading">Top Coins</h3>
             <div class="crypto__main">
-              <div class="crypto-box">
-                <div class="left">
-                  <span class="icon-btc">
-                    <span class="path1"></span><span class="path2"></span>
-                  </span>
-                  <h6>Bitcoin • (BTC)</h6> 
-                  <h6 class="price">USD 53,260.20</h6>
+                <div class="crypto-box">
+                    <div class="left">
+                    <div id="top-logo-0"></div>
+                    <h6 id="top-name-0"> NA </h6> 
+                    <h6 class="price" id="top-price-0"> NA </h6>
+                    </div>
+                    <div class="right">
+                    <p id="top-change-0"> NA </p>
+                    </div>
                 </div>
 
-                <div class="right">
-                  <p> 7.2% </p>
-                </div>
-              </div>
-              
-              <div class="crypto-box">
-                <div class="left">
-                  <span class="icon-btc">
-                    <span class="path1"></span><span class="path2"></span>
-                  </span>
-                  <h6>Bitcoin • (BTC)</h6> 
-                  <h6 class="price">USD 53,260.20</h6>
+                <div class="crypto-box">
+                    <div class="left">
+                    <div id="top-logo-1"></div>
+                    <h6 id="top-name-1"> NA </h6> 
+                    <h6 class="price" id="top-price-1"> NA </h6>
+                    </div>
+                    <div class="right">
+                    <p id="top-change-1"> NA </p>
+                    </div>
                 </div>
 
-                <div class="right">
-                  <p> 7.2% </p>
-                </div>
-              </div>
-              <div class="crypto-box">
-                <div class="left">
-                  <span class="icon-btc">
-                    <span class="path1"></span><span class="path2"></span>
-                  </span>
-                  <h6>Bitcoin • (BTC)</h6> 
-                  <h6 class="price">USD 53,260.20</h6>
+                <div class="crypto-box">
+                    <div class="left">
+                    <div id="top-logo-2"></div>
+                    <h6 id="top-name-2"> NA </h6> 
+                    <h6 class="price" id="top-price-2"> NA </h6>
+                    </div>
+                    <div class="right">
+                    <p id="top-change-2"> NA </p>
+                    </div>
                 </div>
 
-                <div class="right">
-                  <p> 7.2% </p>
+                <div class="crypto-box">
+                    <div class="left">
+                    <div id="top-logo-3"></div>
+                    <h6 id="top-name-3"> NA </h6> 
+                    <h6 class="price" id="top-price-3"> NA </h6>
+                    </div>
+                    <div class="right">
+                    <p id="top-change-3"> NA </p>
+                    </div>
                 </div>
-              </div>
-              <div class="crypto-box">
-                <div class="left">
-                  <span class="icon-btc">
-                    <span class="path1"></span><span class="path2"></span>
-                  </span>
-                  <h6>Bitcoin • (BTC)</h6> 
-                  <h6 class="price">USD 53,260.20</h6>
-                </div>
-
-                <div class="right">
-                  <p> 7.2% </p>
-                </div>
-              </div>
-              
+               
             </div>
           </div>
         </div>
@@ -92,8 +83,10 @@
     </section>
 
     <br><br><br>
-    <br><br><br>
+    @endif
 
+    <br><br><br>
+    
     <section class="coin-list">
       <div class="container">
         <div class="row">
@@ -105,13 +98,8 @@
             <div class="coin-list__main">
               <div class="flat-tabs">
                 <ul class="menu-tab">
-                  <li class="active"><h6 class="fs-16">View All</h6></li>
-                  <li><h6 class="fs-16">Metaverse</h6></li>
-                  <li><h6 class="fs-16">Entertainment</h6></li>
-                  <li><h6 class="fs-16">Energy</h6></li>
-                  <li><h6 class="fs-16">NFT</h6></li>
-                  <li><h6 class="fs-16">Gaming</h6></li>
-                  <li><h6 class="fs-16">Music</h6></li>
+                  <li class="active"><h6 class="fs-16">Coins</h6></li>
+                  <li><h6 class="fs-16">Exchanges</h6></li>
                 </ul>
                 <div class="content-tab">
                   <div class="content-inner">
@@ -124,35 +112,33 @@
                           <th scope="col">Last Price</th>
                           <th scope="col">24h %</th>
                           <th scope="col">Market Cap</th>
-                          <th scope="col">Last 7 Days</th>
                           <th scope="col"></th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row"><span class="icon-star"></span></th>
-                          <td>1</td>
-                          <td>
-                            <a href="#"
-                              ><span class="icon-btc"
-                                ><span class="path1"></span
-                                ><span class="path2"></span
-                              ></span>
-                              <span>Bitcoin</span>
-                              <span class="unit">BTC</span></a
-                            >
-                          </td>
-                          <td class="boild">$56,623.54</td>
-                          <td class="up">+1.45%</td>
-                          <td class="boild">$880,423,640,582</td>
-                          <td><div id="total-revenue-chart-45"></div></td>
-                          <td><a href="#" class="btn">Trade</a></td>
-                        </tr>
+                        @foreach ($exchanges as $coin)
+                            <tr>
+                              <th scope="row"><span class="icon-star"></span></th>
+                              <td><img style="border-radius: 50%; width: 35px; height: 35px;" src="{{ Storage::disk('coins')->url($coin->logo) }}" class="coin-icon" alt="{{ $coin->name }}" /></td>
+                              <td>
+                                <a href="/coin/{{ $coin->slug }}">
+                                  <span>{{ $coin->name }}</span>
+                                  <span class="unit">{{ $coin->symbol }}</span>
+                                </a>
+                              </td>
+                              <td class="boild"><a id="{{ $coin->slug }}-price" href="/coin/{{ $coin->slug }}">price</a></td>
+                              <td class="up">   <a id="{{ $coin->slug }}-priceChange1d" href="/coin/{{ $coin->slug }}">change</a></td>
+                              <td class="boild"><a id="{{ $coin->slug }}-marketCap" href="/coin/{{ $coin->slug }}">marketcap</a></td>
+                              <td><a href="/coin/{{ $coin->slug }}" class="btn">view</a></td>
+                            </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
+              <!-- Pagination -->
+              @include('includes.pagination_exchanges')        
             </div>
           </div>
         </div>
@@ -169,144 +155,36 @@
             </div>
           </div>
 
+          @foreach ($posts as $post)
           <div class="col-md-4">
             <div class="blog-box">
               <div class="box-image">
-                <img src="assets/images/blog/blog-01.jpg" alt="" />
+              <img style="width: auto; height: 250px;" src="{{ Storage::disk('posts')->url($post->image) }}" alt="" />
               </div>
               <div class="box-content">
-                <a href="#" class="category btn-action">learn & earn</a>
-                <a href="" class="title">Learn about UI8 coin and earn an All-Access Pass</a>
+                <a href="/blog/{{ $post->slug }}" class="category btn-action">{{ $post->title }}</a>
+                <br>
+                <a href="/blog/{{ $post->slug }}" class="title">{{ $post->title }}</a>
                 <div class="meta">
-                  <a href="#" class="time">Feb 03, 2021</a>
+                  <a href="/blog/{{ $post->slug }}" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col-md-4">
-            <div class="blog-box">
-              <div class="box-image">
-                <img src="assets/images/blog/blog-01.jpg" alt="" />
-              </div>
-              <div class="box-content">
-                <a href="#" class="category btn-action">learn & earn</a>
-                <a href="" class="title">Learn about UI8 coin and earn an All-Access Pass</a>
-                <div class="meta">
-                  <a href="#" class="time">Feb 03, 2021</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="blog-box">
-              <div class="box-image">
-                <img src="assets/images/blog/blog-01.jpg" alt="" />
-              </div>
-              <div class="box-content">
-                <a href="#" class="category btn-action">learn & earn</a>
-                <a href="" class="title">Learn about UI8 coin and earn an All-Access Pass</a>
-                <div class="meta">
-                  <a href="#" class="time">Feb 03, 2021</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
+          @endforeach
           
           <div class="col-md-12">
             <div class="button-loadmore">
-              <a href="#">
-              
-                All Posts</a
-              >
+              <a href="/blog">All Posts</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="footer style-2">
-      <div class="container">
-        <div class="footer__main">
-          <div class="row">
-            <div class="col-xl-4 col-md-6">
-              <div class="info">
-                <a href="index.html" class="logo">
-                  <img src="assets/images/logo/log-footer.png" alt="" />
-                </a>
-                <h6>Let's talk! 🤙</h6>
-                <ul class="list">
-                  <li><p>+12 345 678 9101</p></li>
-                  <li><p>Info.Avitex@Gmail.Com</p></li>
-                  <li>
-                    <p>
-                      Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi
-                      96522
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-              <div style="text-align: center; padding-top: 46px;">
-                <div class="widget-link">
-                  <h6 class="title">LINKS</h6>
-                  <ul>
-                    <li><a href="spot.html">Spot</a></li>
-                    <li><a href="#">Inverse Perpetual</a></li>
-                    <li><a href="#">USDT Perpetual</a></li>
-                    <li><a href="exchange.html">Exchange</a></li>
-                    <li><a href="#">Launchpad</a></li>
-                    <li><a href="#">Binance Pay</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-4 col-md-12">
-              <div class="footer-contact">
-                <h5>Newletters</h5>
-                <p>
-                  Subscribe our newsletter to get more free design course and
-                  resource.
-                </p>
-                <form action="#">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    required=""
-                  />
-                  <button type="submit" class="btn-action">Submit</button>
-                </form>
-                <ul class="list-social">
-                  <li>
-                    <a href="#"><span class="icon-facebook-f"></span></a>
-                  </li>
-                  <li>
-                    <a href="#"><span class="icon-instagram"></span></a>
-                  </li>
-                  <li>
-                    <a href="#"><span class="icon-youtube"></span></a>
-                  </li>
-                  <li>
-                    <a href="#"><span class="icon-twitter"></span></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid">
-        <div class="footer__bottom">
-          <p>
-            ©2022 Rockie.com. All rights reserved. Terms of Service | Privacy
-            Terms
-          </p>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer -->
+    @include('includes.footer')
+    <!-- End Footer -->
 
     <script src="{{ asset('js/aos.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -319,6 +197,7 @@
     <script src="{{ asset('js/apexcharts.js') }}"></script>
     <script src="{{ asset('js/switchmode.js') }}"></script>
     <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+    
 
     <script src="{{ asset('js/chart.js') }}"></script>
 
@@ -359,8 +238,51 @@
         slidesPerView: 4,
       });
     </script>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+
+    <script src="{{ asset('js/crypto-functions.js') }}"></script>
+    <script>
+        // Get All Coins Data For Table From Api
+        var jsonData = @json($exchanges);
+            let coins_to_get = '';
+            for (let i = 0; i < jsonData.data.length; i++) {
+            coins_to_get = coins_to_get + jsonData.data[i].slug + ','
+            }
+
+            const apiUrl = 'https://api.coincap.io/v2/assets?ids=' + coins_to_get;
+            fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                CoinsDataDisplay(data);
+                
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+
+        // Get Top Coins Data From Api
+            const apiUrl2 = 'https://api.coincap.io/v2/assets?limit=4';
+            fetch(apiUrl2)
+            .then(response => {
+                if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                TopCoinsDataDisplay(data);
+                
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
   </body>
 </html>
