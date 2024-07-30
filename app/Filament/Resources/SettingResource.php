@@ -19,6 +19,10 @@ class SettingResource extends Resource
 {
     protected static bool $shouldRegisterNavigation = false;
 
+    protected static ?int $navigationSort = 6;
+
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -65,8 +69,8 @@ class SettingResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('cmc_api')
                     ->maxLength(255),
-                Forms\Components\Toggle::make('maintenance_mode')
-                    ->required(),
+                //Forms\Components\Toggle::make('maintenance_mode')
+                //    ->required(),
                 Forms\Components\Textarea::make('footer')
                     ->maxLength(65535)
                     ->columnSpanFull(),

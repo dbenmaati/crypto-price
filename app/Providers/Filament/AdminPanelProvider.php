@@ -57,7 +57,7 @@ class AdminPanelProvider extends PanelProvider
                 NavigationItem::make('Settings')
                     ->url('/admin/settings/1/edit')
                     ->icon('heroicon-o-cog-6-tooth')
-                    ->sort(3),
+                    ->sort(6),
                     //->visible(fn (): bool => auth()->user()?->user_type == 'admin'), 
             ])
             ->authMiddleware([

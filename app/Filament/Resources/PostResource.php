@@ -18,6 +18,8 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
+    protected static ?int $navigationSort = 4;
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -34,12 +36,14 @@ class PostResource extends Resource
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
-                Forms\Components\Toggle::make('is_published')
-                    ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->disk('posts')
-                    ->preserveFilenames(),
+                    ->preserveFilenames()
+                    ->columnSpanFull(),
+                Forms\Components\Toggle::make('is_published')
+                    ->required(),
+                
             ]);
     }
 

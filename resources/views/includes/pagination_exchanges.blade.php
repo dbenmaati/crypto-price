@@ -89,7 +89,6 @@
               $end = $exchanges->currentPage() + 1;
               if ($start < 1) {
                   $start = 1;
-                  $end += 1;
               }
               if ($end >= $exchanges->lastPage()) {
                   $end = $exchanges->lastPage();

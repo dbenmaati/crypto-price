@@ -17,6 +17,8 @@ class PageResource extends Resource
 {
     protected static ?string $model = Page::class;
 
+    protected static ?int $navigationSort = 5;
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -42,6 +44,7 @@ class PageResource extends Resource
                 Forms\Components\Toggle::make('footer_menu_show')
                     ->required(),
                 Forms\Components\TextInput::make('slug')
+                    ->prefix('/pages/')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -78,7 +81,6 @@ class PageResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ])
             ->emptyStateActions([

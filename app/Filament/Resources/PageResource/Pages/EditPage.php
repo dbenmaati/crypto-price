@@ -12,8 +12,11 @@ class EditPage extends EditRecord
 
     protected function getHeaderActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        // CHECK IF WE ARE NOT IN ID 1 or 2 or 3 (1,2,3 can't be deleted)
+        if (!in_array($this->record->id, [1, 2, 3])) {
+            return [ Actions\DeleteAction::make(), ];
+        }
+
+        else return [];
     }
 }

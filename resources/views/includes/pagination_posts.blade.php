@@ -85,20 +85,20 @@
                
             <div class="pagination-container">
               <?php
-              $start = $coins->currentPage() - 1;
-              $end = $coins->currentPage() + 1;
+              $start = $posts->currentPage() - 1;
+              $end = $posts->currentPage() + 1;
               if ($start < 1) {
                   $start = 1;
               }
-              if ($end >= $coins->lastPage()) {
-                  $end = $coins->lastPage();
+              if ($end >= $posts->lastPage()) {
+                  $end = $posts->lastPage();
               }
               ?>          
                                             
-              @if ($coins->hasPages())
+              @if ($posts->hasPages())
               <ul class="pagination">
                   <!-- Previous Button --> 
-                  @if ($coins->onFirstPage())
+                  @if ($posts->onFirstPage())
                       <li class="disabled">
                           <a tabindex="0" role="button" aria-disabled="true" aria-label="Previous page" rel="prev">
                               <span class="paginate-item">
@@ -109,7 +109,7 @@
                       </li>
                   @else
                   <li>
-                    <a href="{{ $coins->url($start) }}" tabindex="0" role="button" aria-disabled="false" aria-label="Previous page" rel="prev">
+                    <a href="{{ $posts->url($start) }}" tabindex="0" role="button" aria-disabled="false" aria-label="Previous page" rel="prev">
                               <span class="paginate-item">
                                   <i class="fa-solid fa-arrow-left"></i>
                                   <span>&nbsp;&nbsp;PREV</span>
@@ -120,22 +120,22 @@
                 <!-- Pagination Middle --> 
                   @if($start > 1)
                       <li class="page">
-                          <a role="button" href="{{ $coins->url(1) }}" tabindex="0" aria-label="Page {{1}}">{{1}}</a>
+                          <a role="button" href="{{ $posts->url(1) }}" tabindex="0" aria-label="Page {{1}}">{{1}}</a>
                       </li>
                   @endif
                       @for ($i = $start; $i <= $end; $i++)
-                        <li class="page {{ ($coins->currentPage() == $i) ? ' active' : '' }}">
-                            <a role="button" href="{{ $coins->url($i) }}" tabindex="0" aria-label="Page {{$i}}">{{$i}}</a>
+                        <li class="page {{ ($posts->currentPage() == $i) ? ' active' : '' }}">
+                            <a role="button" href="{{ $posts->url($i) }}" tabindex="0" aria-label="Page {{$i}}">{{$i}}</a>
                         </li>
                       @endfor
                 <!-- Show Last Page --> 	
-                  @if($end < $coins->lastPage())
+                  @if($end < $posts->lastPage())
                     <li class="page">
-                        <a role="button" href="{{ $coins->url($coins->lastPage()) }}" tabindex="0" aria-label="Page {{$coins->lastPage()}}">{{$coins->lastPage()}}</a>
+                        <a role="button" href="{{ $posts->url($posts->lastPage()) }}" tabindex="0" aria-label="Page {{$posts->lastPage()}}">{{$posts->lastPage()}}</a>
                     </li>
                   @endif
                 <!-- Next Button --> 
-                @if ($coins->onLastPage())
+                @if ($posts->onLastPage())
                   <li class="disabled">
                       <a tabindex="0" role="button" aria-disabled="true" aria-label="Next page" rel="next">
                         <span class="paginate-item"><span>NEXT</span>&nbsp;&nbsp; <i class="fa-solid fa-arrow-right"></i> </span>
@@ -143,11 +143,11 @@
                   </li>
                 @else
                   <li>
-                    <a href="{{ $coins->url($end) }}" tabindex="0" role="button" aria-disabled="false" aria-label="Next page" rel="next">
+                    <a href="{{ $posts->url($end) }}" tabindex="0" role="button" aria-disabled="false" aria-label="Next page" rel="next">
                       <span class="paginate-item"> <span>NEXT</span>&nbsp;&nbsp; <i class="fa-solid fa-arrow-right"></i> </span>
                     </a>
                   </li>
-                  @endif
+                @endif
                 
               </ul>
               @endif

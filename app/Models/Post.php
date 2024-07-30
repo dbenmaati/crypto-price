@@ -15,6 +15,7 @@ class Post extends Model implements HasMedia
 
     protected $casts = [
         'image' => 'array',
+        'tags' => 'array',
     ];
 
 }

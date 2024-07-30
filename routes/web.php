@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoinController;
 use App\Http\Controllers\ExchangeController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,8 @@ Route::get('/coin/{slug}', [CoinController::class, 'single'])->name('ico.single'
 
 Route::get('/exchanges', [ExchangeController::class, 'index'])->name('exchange.home');
 Route::get('/exchanges/{slug}', [ExchangeController::class, 'single'])->name('exchange.single');
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.home');
+Route::get('/blog/{slug}', [BlogController::class, 'single'])->name('blog.single');
+
+Route::get('/pages/{slug}', [BlogController::class, 'page'])->name('page.single');

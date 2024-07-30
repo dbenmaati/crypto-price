@@ -51,6 +51,18 @@ return new class extends Migration
                 'updated_at' => now()
             ],
             [
+                'page_name' => 'Blog',
+                'meta_title' => 'Blog',
+                'meta_description' => 'Discover all news about crypto and blockchain',
+                'meta_keywords' => 'crypto, exchanges, bitcoin, eth, bsc',
+                'content' => 'This is the blog page',
+                'header_menu_show' => true,
+                'footer_menu_show' => true,
+                'slug' => '/blog',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
                 'page_name' => 'About Us',
                 'meta_title' => 'About Us',
                 'meta_description' => 'Learn more about us.',
@@ -58,7 +70,7 @@ return new class extends Migration
                 'content' => 'This is the About Us page content.',
                 'header_menu_show' => false,
                 'footer_menu_show' => true,
-                'slug' => '/about-us',
+                'slug' => '/pages/about-us',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -70,7 +82,7 @@ return new class extends Migration
                 'content' => 'This is the Terms of Service page content.',
                 'header_menu_show' => false,
                 'footer_menu_show' => true,
-                'slug' => '/terms-of-service',
+                'slug' => '/pages/terms-of-service',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -82,7 +94,7 @@ return new class extends Migration
                 'content' => 'This is the Privacy Policy page content.',
                 'header_menu_show' => false,
                 'footer_menu_show' => true,
-                'slug' => '/privacy-policy',
+                'slug' => '/pages/privacy-policy',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -94,7 +106,7 @@ return new class extends Migration
                 'content' => 'This is the Contact Us page content.',
                 'header_menu_show' => false,
                 'footer_menu_show' => true,
-                'slug' => '/contact-us',
+                'slug' => '/pages/contact-us',
                 'created_at' => now(),
                 'updated_at' => now()
             ]

@@ -14,28 +14,36 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-
-class ExchangeController extends Controller
+class BlogController extends Controller
 {
     public function index(Request $request)
     {
-        $exchanges = Exchange::orderBy('rank', 'asc')->where('confirmed', 1)->paginate(20);
-        $posts = Post::orderBy('updated_at', 'asc')->where('is_published', 1)->take(3)->get();
+        $posts = Post::orderBy('updated_at', 'asc')->where('is_published', 1)->paginate(6);
         $pages = page::orderBy('created_at', 'asc')->get();
         $settings = Setting::find(1);
  
-        return view('pages.exchanges.index',compact('exchanges', 'posts', 'pages', 'settings'))
+        return view('pages.blog.index',compact('posts', 'pages', 'settings'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function single($slug)
     {
-        $exchange = Exchange::where('slug', $slug)->first();
+        $post = Post::where('slug', $slug)->first();
         $posts = Post::orderBy('updated_at', 'asc')->where('is_published', 1)->take(3)->get();
         $pages = page::orderBy('created_at', 'asc')->get();
         $settings = Setting::find(1);
 
-        return view('pages.exchanges.single', compact('exchange', 'posts', 'pages', 'settings'));
+        return view('pages.blog.single', compact('post','posts', 'pages', 'settings'));
+               
+    }
+
+    public function page($slug)
+    {
+        $page = page::where('slug', $slug)->first();
+        $pages = page::orderBy('created_at', 'asc')->get();
+        $settings = Setting::find(1);
+
+        return view('pages.page.single', compact('page', 'pages', 'settings'));
                
     }
 }
