@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Support\Facades\Storage;
+use Filament\Forms\Components\Tabs;
 
 
 class CoinResource extends Resource
@@ -29,9 +30,6 @@ class CoinResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->maxLength(100),
                 //Forms\Components\TextInput::make('rank')
                 //    ->required()
                 //    ->numeric(),
@@ -39,6 +37,9 @@ class CoinResource extends Resource
                     ->required()
                     ->maxLength(100),
                 Forms\Components\TextInput::make('symbol')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(100),
                 Forms\Components\FileUpload::make('logo'),

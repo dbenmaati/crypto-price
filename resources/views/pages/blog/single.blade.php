@@ -5,7 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ $settings->site_title }} | Page Title</title>
+
+    @php use Illuminate\Support\Str; @endphp
+    @if(isset($post))<title>{{ $settings->site_title }} | {{ $post->title }}</title>@endif
+    @if(isset($post))<meta name="description" content="{{ Str::limit($post->content, 180) }}">@endif
+
+    <meta name="keywords" content="crypto, cryptocurrency, bitcoin, coins">
+    <meta name="author" content="{{ $settings->site_title }}">
+    <meta name="robots" content="index, follow">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/swiper-bundle.min.css') }}" >
@@ -67,7 +74,6 @@
 
               </div>
 
-              <br>
               <div class="details-bottom">
                 <div class="tags">
                   <h6>Tags:</h6>
@@ -106,23 +112,27 @@
             </div>
           </div>
 
-          @foreach ($posts as $post)
-          <div class="col-md-4">
-            <div class="blog-box">
-              <div class="box-image">
-              <img style="width: auto; height: 250px;" src="{{ Storage::disk('posts')->url($post->image) }}" alt="" />
-              </div>
-              <div class="box-content">
-                <a href="/blog/{{ $post->slug }}" class="category btn-action">{{ $post->title }}</a>
-                <br>
-                <a href="/blog/{{ $post->slug }}" class="title">{{ $post->title }}</a>
-                <div class="meta">
-                  <a href="/blog/{{ $post->slug }}" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
+          @if(empty($posts))
+            <h6 style="text-align:center;"> NO POSTS YET</h6><br><br>
+          @else
+            @foreach ($posts as $post)
+            <div class="col-md-4">
+              <div class="blog-box">
+                <div class="box-image">
+                <img style="width: auto; height: 250px;" src="{{ Storage::disk('posts')->url($post->image) }}" alt="" />
+                </div>
+                <div class="box-content">
+                  <a href="/blog/{{ $post->slug }}" class="category btn-action">{{ $post->title }}</a>
+                  <br>
+                  <a href="/blog/{{ $post->slug }}" class="title">{{ $post->title }}</a>
+                  <div class="meta">
+                    <a href="/blog/{{ $post->slug }}" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          @endforeach
+            @endforeach
+          @endif
           
           <div class="col-md-12">
             <div class="button-loadmore">

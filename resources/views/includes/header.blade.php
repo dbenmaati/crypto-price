@@ -5,7 +5,8 @@
             <div class="header__body d-flex justify-content-between">
               <div class="header__left">
                 <div class="logo">
-                  <a class="light" href="index.html">
+                  <a class="light" href="{{ route('coins.home') }}">
+                    
                     <img
                       id="site-logo"
                       src="{{ Storage::disk('public')->url($settings->site_logo) }}"
@@ -18,7 +19,7 @@
                     />
                     
                   </a>
-                  <a class="dark" href="index.html">
+                  <a class="dark" href="{{ route('coins.home') }}">
                     <img
                       src="{{ Storage::disk('public')->url($settings->site_logo) }}"
                       alt=""

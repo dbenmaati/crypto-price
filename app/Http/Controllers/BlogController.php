@@ -20,9 +20,10 @@ class BlogController extends Controller
     {
         $posts = Post::orderBy('updated_at', 'asc')->where('is_published', 1)->paginate(6);
         $pages = page::orderBy('created_at', 'asc')->get();
+        $page = page::where('id', 5)->first();
         $settings = Setting::find(1);
  
-        return view('pages.blog.index',compact('posts', 'pages', 'settings'))
+        return view('pages.blog.index',compact('posts', 'pages', 'page', 'settings'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

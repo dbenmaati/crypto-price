@@ -14,11 +14,10 @@
           <div style="text-align: center;">
             <div class="banner__content">
               <h2 class="title">
-                A trusted and secure cryptocurrency exchange.
+                {{ $page->meta_title }}
               </h2>
               <p class="fs-20 desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <?php echo nl2br($page->content); ?>
               </p>
             </div>
           </div>
@@ -98,8 +97,8 @@
             <div class="coin-list__main">
               <div class="flat-tabs">
                 <ul class="menu-tab">
-                  <li class="active"><h6 class="fs-16">Coins</h6></li>
-                  <li><h6 class="fs-16">Exchanges</h6></li>
+                  <a href="{{ route('coins.home') }}"><li class="active"><h6 class="fs-16">Coins</h6></li></a>
+                  <a href="{{ route('exchange.home') }}"><li><h6 class="fs-16">Exchanges</h6></li></a>
                 </ul>
                 <div class="content-tab">
                   <div class="content-inner">
@@ -155,23 +154,27 @@
             </div>
           </div>
 
-          @foreach ($posts as $post)
-          <div class="col-md-4">
-            <div class="blog-box">
-              <div class="box-image">
-              <img style="width: auto; height: 250px;" src="{{ Storage::disk('posts')->url($post->image) }}" alt="" />
-              </div>
-              <div class="box-content">
-                <a href="/blog/{{ $post->slug }}" class="category btn-action">{{ $post->title }}</a>
-                <br>
-                <a href="/blog/{{ $post->slug }}" class="title">{{ $post->title }}</a>
-                <div class="meta">
-                  <a href="/blog/{{ $post->slug }}" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
+          @if(empty($posts))
+            <h6 style="text-align:center;"> NO POSTS YET</h6><br><br>
+          @else
+            @foreach ($posts as $post)
+            <div class="col-md-4">
+              <div class="blog-box">
+                <div class="box-image">
+                <img style="width: auto; height: 250px;" src="{{ Storage::disk('posts')->url($post->image) }}" alt="" />
+                </div>
+                <div class="box-content">
+                  <a href="/blog/{{ $post->slug }}" class="category btn-action">{{ $post->title }}</a>
+                  <br>
+                  <a href="/blog/{{ $post->slug }}" class="title">{{ $post->title }}</a>
+                  <div class="meta">
+                    <a href="/blog/{{ $post->slug }}" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          @endforeach
+            @endforeach
+          @endif
           
           <div class="col-md-12">
             <div class="button-loadmore">

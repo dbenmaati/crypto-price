@@ -8,25 +8,22 @@
     @include('includes.header')
     <!-- end Header -->
 
-    <!-- PageTitle -->
-    <section class="page-title">
+    <!-- Banner Top -->
+    <section class="banner">
       <div class="container">
-        <div class="row">
-          <div>
-            <h3 class="heading" style="text-align:center;">Latest News</h3>
-            <ul class="breadcrumb" style="justify-content: center;">
-              <li><a style="font-size: 0.8em" href="{{ route('coins.home') }}">Home</a></li>
-              <li><span style="font-size: 0.8em" class="fs-18">-></span></li>
-              <li><span style="font-size: 0.8em" class="fs-18">Blog</span></li>
-            </ul>
+          <div style="text-align: center;">
+            <div class="banner__content">
+              <h2 class="title">
+                {{ $page->meta_title }}
+              </h2>
+              <p class="fs-20 desc">
+                <?php echo nl2br($page->content); ?>
+              </p>
+            </div>
           </div>
-
-        </div>
       </div>
     </section>
-    <!-- End PageTitle -->
-
-    <br><br><br>
+    <!-- End Banner Top -->
 
 
     <section class="blog">

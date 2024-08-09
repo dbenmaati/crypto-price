@@ -104,8 +104,8 @@
     </footer>
     
     @isset($settings->js_code)
-      <script>
-        {{ $settings->js_code }}
-      </script>
-    @endisset 
+        @if($settings->js_code != 'NULL')
+            {{ $settings->js_code }}
+        @endif
+    @endisset
     

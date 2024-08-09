@@ -5,7 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ $settings->site_title }} | Page Title</title>
+    
+    @php use Illuminate\Support\Str; @endphp
+    @if(isset($coin))<title>{{ $settings->site_title }} | {{ $coin->name }}</title>@endif
+    @if(isset($coin))<meta name="description" content="{{ Str::limit($coin->description, 180) }}">@endif
+
+    <meta name="keywords" content="crypto, cryptocurrency, bitcoin, coins">
+    <meta name="author" content="{{ $settings->site_title }}">
+    <meta name="robots" content="index, follow">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/swiper-bundle.min.css') }}" >
@@ -50,7 +57,7 @@
           <div class="col-xl-3 col-md-12">
             <div class="main info" style="margin-right:10px;">
               <div style="display: flex; justify-content: center; align-items: center;">
-                <img src="http://127.0.0.1:8000/storage/coins/bitcoin-logo.png" alt="Round Image" style="border-radius: 50%; width: 45px; height: 45px;">
+                <img src="{{ Storage::disk('coins')->url($coin->logo) }}" alt="Round Image" style="border-radius: 50%; width: 45px; height: 45px;">
                 <h6 style="margin: 0 0 0 10px;">{{ $coin->name }}
                   <span style="font-size: 0.5em;">({{ $coin->symbol }})</span>
                 </h6>
@@ -71,17 +78,23 @@
               </ul>
               <br>
               
+              @isset($coin->website)
               <div class="button-loadmore">
-                <a style="width: 100%; border: 2px solid orange;" href="/blog">Website</a>
+                <a style="width: 100%; border: 2px solid orange;" href="{{ $coin->website }}">Website</a>
               </div>
+              @endisset
 
+              @isset($coin->whitepaper)
               <div class="button-loadmore">
-                <a style="width: 100%; border: 2px solid orange;" href="/blog">Whitepaper</a>
+                <a style="width: 100%; border: 2px solid orange;" href="{{ $coin->whitepaper }}">Whitepaper</a>
               </div>
+              @endisset
 
+              @isset($coin->explorer)
               <div class="button-loadmore">
-                <a style="width: 100%; border: 2px solid orange;" href="/blog">Explorer</a>
+                <a style="width: 100%; border: 2px solid orange;" href="{{ $coin->explorer }}">Explorer</a>
               </div>
+              @endisset
               
               <br><hr><br>
               <ul>
@@ -100,9 +113,9 @@
               <br>
               <hr>
               <ul style="display: flex; justify-content: center; align-items: center; font-size: 1.7em; padding: 0; margin: 0;">
-              <li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->telegram }}"><span class="fa-brands fa-twitter"></span></a></li>
-                <li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->telegram }}"><span class="fa-brands fa-telegram"></span></a></li>
-                <li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->telegram }}"><span class="fa-brands fa-discord"></span></a></li>
+                @isset($coin->twitter)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $coin->twitter }}"><span class="fa-brands fa-twitter"></span></a></li>@endisset
+                @isset($coin->telegram)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $coin->telegram }}"><span class="fa-brands fa-telegram"></span></a></li>@endisset
+                @isset($coin->discord)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $coin->discord }}"><span class="fa-brands fa-discord"></span></a></li>@endisset
               </ul>
               
             </div>
@@ -118,7 +131,7 @@
                       max-width: 100%;
                       margin: 35px auto;
                     }
-                    .chart-btn {padding: 4px 10px; background: #999999; border-radius: 30px; color: #fff; display: inline-block; position: relative; overflow: hidden;}
+                    .chart-btn {min-width: 55px; padding: 4px 10px; background: #99999900; border-radius: 30px; display: inline-block; position: relative; overflow: hidden; border:solid #707070;}
                     .active {background: orange;}
                   </style>
                   <div class="jsx-367480488 chart-options direction-rtl">
@@ -143,11 +156,15 @@
                   <div class="button"></div>
                 </div>
 
-                <div class="main">
-                  <h6>Description</h6>
-                  <p>xxxxxxxxxxxxxxxxxxxxxx</p>
-                  <div class="button"></div>
-                </div>
+                @isset($coin->description)
+                  @if($coin->description != 'NULL')
+                    <div class="main">
+                      <h6>Description</h6>
+                      <p>{{ $coin->description }}</p>
+                      <div class="button"></div>
+                    </div>
+                  @endif
+                @endisset
 
                 <div class="main">
                   <h6>{{ $coin->symbol }} To USD Converter</h6>
@@ -185,24 +202,28 @@
               <h3 class="heading">Latest News</h3>
             </div>
           </div>
-
-          @foreach ($posts as $post)
-          <div class="col-md-4">
-            <div class="blog-box">
-              <div class="box-image">
-              <img style="width: auto; height: 250px;" src="{{ Storage::disk('posts')->url($post->image) }}" alt="" />
-              </div>
-              <div class="box-content">
-                <a href="/blog/{{ $post->slug }}" class="category btn-action">{{ $post->title }}</a>
-                <br>
-                <a href="/blog/{{ $post->slug }}" class="title">{{ $post->title }}</a>
-                <div class="meta">
-                  <a href="/blog/{{ $post->slug }}" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
+          
+          @if(empty($posts))
+            <h6 style="text-align:center;"> NO POSTS YET</h6><br><br>
+          @else
+            @foreach ($posts as $post)
+            <div class="col-md-4">
+              <div class="blog-box">
+                <div class="box-image">
+                <img style="width: auto; height: 250px;" src="{{ Storage::disk('posts')->url($post->image) }}" alt="" />
+                </div>
+                <div class="box-content">
+                  <a href="/blog/{{ $post->slug }}" class="category btn-action">{{ $post->title }}</a>
+                  <br>
+                  <a href="/blog/{{ $post->slug }}" class="title">{{ $post->title }}</a>
+                  <div class="meta">
+                    <a href="/blog/{{ $post->slug }}" class="time">{{ \Carbon\Carbon::parse($post->updated_at)->format('F j, Y, g:i a') }}</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          @endforeach
+            @endforeach
+          @endif
           
           <div class="col-md-12">
             <div class="button-loadmore">
