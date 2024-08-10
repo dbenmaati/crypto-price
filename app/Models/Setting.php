@@ -12,9 +12,11 @@ class Setting extends Model
     protected $fillable = [
         'site_title',
         'site_logo',
+        'site_favicon',
     ];
 
     protected $casts = [
         'site_logo' => 'array',
+        'site_favicon' => 'array',
     ];
 }

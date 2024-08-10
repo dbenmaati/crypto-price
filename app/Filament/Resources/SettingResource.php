@@ -33,8 +33,9 @@ class SettingResource extends Resource
                     Forms\Components\FileUpload::make('site_logo')
                     ->image()
                     ->preserveFilenames(),
-                Forms\Components\TextInput::make('site_favicon')
-                    ->maxLength(255),
+                    Forms\Components\FileUpload::make('site_favicon')
+                    ->image()
+                    ->preserveFilenames(),
                 Forms\Components\Textarea::make('meta_description')
                     ->maxLength(65535)
                     ->columnSpanFull(),
