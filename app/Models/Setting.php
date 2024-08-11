@@ -11,12 +11,16 @@ class Setting extends Model
 
     protected $fillable = [
         'site_title',
-        'site_logo',
+        'site_logo_light',
+        'site_logo_dark',
+        'site_logo_heigh',
+        'site_logo_width',
         'site_favicon',
     ];
 
     protected $casts = [
-        'site_logo' => 'array',
+        'site_logo_light' => 'array',
+        'site_logo_dark' => 'array',
         'site_favicon' => 'array',
     ];
 }

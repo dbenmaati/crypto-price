@@ -5,31 +5,33 @@
             <div class="header__body d-flex justify-content-between">
               <div class="header__left">
                 <div class="logo">
-                  <a class="light" href="{{ route('coins.home') }}">
-                    
+                  
+                <a class="light" href="{{ route('coins.home') }}">
+                  {{ $settings->width }}
                     <img
                       id="site-logo"
-                      src="{{ Storage::disk('public')->url($settings->site_logo) }}"
+                      src="{{ Storage::disk('public')->url($settings->site_logo_light) }}"
                       alt=""
-                      width="118"
-                      height="32"
-                      data-retina="{{ Storage::disk('public')->url($settings->site_logo) }}"
-                      data-width="118"
-                      data-height="32"
+                      width="{{ $settings->site_logo_width }}"
+                      height="{{ $settings->site_logo_heigh }}"
+                      data-retina="{{ Storage::disk('public')->url($settings->site_logo_light) }}"
+                      data-width="{{ $settings->site_logo_width }}"
+                      data-height="{{ $settings->site_logo_heigh }}"
                     />
-                    
                   </a>
+
                   <a class="dark" href="{{ route('coins.home') }}">
                     <img
-                      src="{{ Storage::disk('public')->url($settings->site_logo) }}"
+                      src="{{ Storage::disk('public')->url($settings->site_logo_dark) }}"
                       alt=""
-                      width="118"
-                      height="32"
-                      data-retina="{{ Storage::disk('public')->url($settings->site_logo) }}"
-                      data-width="118"
-                      data-height="32"
+                      width="{{ $settings->site_logo_width }}"
+                      height="{{ $settings->site_logo_heigh }}"
+                      data-retina="{{ Storage::disk('public')->url($settings->site_logo_dark) }}"
+                      data-width="{{ $settings->site_logo_width }}"
+                      data-height="{{ $settings->site_logo_heigh }}"
                     />
                   </a>
+
                 </div>
                 <div class="left__main">
                   <nav id="main-nav" class="main-nav">

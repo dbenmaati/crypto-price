@@ -7,6 +7,7 @@ use App\Filament\Resources\SettingResource\RelationManagers;
 use App\Models\Setting;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Components\Section;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -27,57 +28,118 @@ class SettingResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('site_title')
-                    ->required()
-                    ->maxLength(255),
-                    Forms\Components\FileUpload::make('site_logo')
-                    ->image()
-                    ->preserveFilenames(),
+
+                Section::make('Site identity')
+                ->description('')
+                ->schema([
+                    Forms\Components\TextInput::make('site_title')
+                        ->required()
+                        ->maxLength(255),
+
+                    Forms\Components\TextInput::make('meta_keywords')
+                        ->maxLength(255),
+
+                    Forms\Components\Textarea::make('meta_description')
+                        ->maxLength(65535)
+                        ->columnSpanFull(),
+                ])
+                ->collapsible()
+                ->collapsed()
+                ->columns(2),
+
+                
+                
+
+                Section::make('Social Media')
+                ->description('')
+                ->schema([
+                    Forms\Components\TextInput::make('facebook')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('instagram')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('twitter')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('linkedin')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('telegram')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('discord')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('reddit')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('medium')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('youtube')
+                        ->maxLength(255),
+                ])
+                ->collapsible()
+                ->collapsed()
+                ->columns(2),
+
+
+                Section::make('Logo & Favicon')
+                ->description('')
+                ->schema([
+
+                    Forms\Components\FileUpload::make('site_logo_light')
+                        ->image()
+                        ->preserveFilenames()
+                        ->label('Light Mode Logo'),
+                    Forms\Components\FileUpload::make('site_logo_dark')
+                        ->image()
+                        ->preserveFilenames()
+                        ->label('Dark Mode Logo'),
+                    
+                    Forms\Components\TextInput::make('site_logo_heigh')
+                        ->required()
+                        ->numeric()
+                        ->label('Logo Height'),
+                    Forms\Components\TextInput::make('site_logo_width')
+                        ->required()
+                        ->numeric()
+                        ->label('Logo Width'),
+
                     Forms\Components\FileUpload::make('site_favicon')
-                    ->image()
-                    ->preserveFilenames(),
-                Forms\Components\Textarea::make('meta_description')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('meta_keywords')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('contact_email')
-                    ->email()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('facebook')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('instagram')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('twitter')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('linkedin')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('telegram')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('discord')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('reddit')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('medium')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('youtube')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('google_analytics')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('google_webmaster')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('bing_webmaster')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('cmc_api')
-                    ->maxLength(255),
+                        ->image()
+                        ->avatar()
+                        ->preserveFilenames()
+                        ->label('Favicon'),
+
+                ])
+                ->collapsible()
+                ->collapsed()
+                ->columns(2),
+                
+
+                Section::make('Other Settings')
+                ->description('')
+                ->schema([
+                    Forms\Components\TextInput::make('contact_email')
+                        ->email()
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('google_analytics')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('google_webmaster')
+                        ->maxLength(255),
+                    Forms\Components\TextInput::make('bing_webmaster')
+                        ->maxLength(255),
+                    Forms\Components\Textarea::make('footer')
+                        ->maxLength(65535)
+                        ->columnSpanFull(),
+                    Forms\Components\Textarea::make('js_code')
+                        ->maxLength(65535)
+                        ->columnSpanFull(),
+                ])
+                ->collapsible()
+                ->collapsed()
+                ->columns(2),
+            
+
+                //Forms\Components\TextInput::make('cmc_api')
+                //    ->maxLength(255),
                 //Forms\Components\Toggle::make('maintenance_mode')
-                //    ->required(),
-                Forms\Components\Textarea::make('footer')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('js_code')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
+                //    ->required(),       
+
             ]);
     }
 

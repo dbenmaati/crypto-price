@@ -42,7 +42,7 @@ class CoinResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(100),
-                Forms\Components\FileUpload::make('logo'),
+
                 Forms\Components\Textarea::make('description')
                     ->maxLength(65535)
                     ->columnSpanFull(),
@@ -59,8 +59,17 @@ class CoinResource extends Resource
                     ->maxLength(100),
                 Forms\Components\TextInput::make('explorer')
                     ->maxLength(100),
+
+                Forms\Components\FileUpload::make('logo')
+                    ->image()
+                    ->avatar()
+                    ->preserveFilenames()
+                    ->columnSpanFull()
+                    ->disk('coins'),
+
                 Forms\Components\Toggle::make('confirmed')->default(true)
                     ->required(),
+
             ]);
     }
 
@@ -71,7 +80,9 @@ class CoinResource extends Resource
                 Tables\Columns\TextColumn::make('rank')->toggleable()
                     ->numeric()
                     ->sortable(),
+                    
                 Tables\Columns\ImageColumn::make('logo')->disk('coins'),
+
                 Tables\Columns\TextColumn::make('name')->toggleable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('symbol')->toggleable()

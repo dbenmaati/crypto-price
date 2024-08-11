@@ -27,26 +27,35 @@ class PageResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('page_name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->label('Title'),
                 Forms\Components\TextInput::make('meta_title')
                     ->required()
+                    ->maxLength(255)
+                    ->label('Page Title'),
+
+                Forms\Components\TextInput::make('slug')
+                    ->prefix('/pages/')
+                    ->required()
+                    ->columnSpanFull()
                     ->maxLength(255),
+
                 Forms\Components\Textarea::make('meta_description')
                     ->maxLength(65535)
-                    ->columnSpanFull(),
+                    ->label('Seo meta description'),
                 Forms\Components\Textarea::make('meta_keywords')
                     ->maxLength(65535)
-                    ->columnSpanFull(),
+                    ->label('Seo meta keywords'),
+
+
                 Forms\Components\Textarea::make('content')
                     ->columnSpanFull(),
+
                 Forms\Components\Toggle::make('header_menu_show')
                     ->required(),
                 Forms\Components\Toggle::make('footer_menu_show')
                     ->required(),
-                Forms\Components\TextInput::make('slug')
-                    ->prefix('/pages/')
-                    ->required()
-                    ->maxLength(255),
+                
             ]);
     }
 

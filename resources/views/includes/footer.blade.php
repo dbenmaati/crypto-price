@@ -75,15 +75,15 @@
       <div class="container">
         <div style="justify-content: space-between; align-items: center; text-align:center;">  
           <ul style="display: flex; justify-content: center; align-items: center; font-size: 1.7em; padding: 0; margin: 0;">
-            @isset($settings->facebook)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->facebook }}"><span class="fa-brands fa-facebook-f"></span></a></li>@endisset
-            @isset($settings->instagram)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->instagram }}"><span class="fa-brands fa-instagram"></span></a></li>@endisset
-            @isset($settings->twitter)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->twitter }}"><span class="fa-brands fa-twitter"></span></a></li>@endisset
-            @isset($settings->linkedin)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->linkedin }}"><span class="fa-brands fa-linkedin"></span></a></li>@endisset
-            @isset($settings->telegram)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->telegram }}"><span class="fa-brands fa-telegram"></span></a></li>@endisset
-            @isset($settings->discord)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->discord }}"><span class="fa-brands fa-discord"></span></a></li>@endisset
-            @isset($settings->reddit)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->reddit }}"><span class="fa-brands fa-reddit"></span></a></li>@endisset
-            @isset($settings->medium)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->medium }}"><span class="fa-brands fa-medium"></span></a></li>@endisset
-            @isset($settings->youtube)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->youtube }}"><span class="fa-brands fa-youtube"></span></a></li>@endisset
+            @isset($settings->facebook)  @if($settings->facebook != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->facebook }}"><span class="fa-brands fa-facebook-f"></span></a></li>@endif @endisset
+            @isset($settings->instagram) @if($settings->instagram != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->instagram }}"><span class="fa-brands fa-instagram"></span></a></li>@endif @endisset
+            @isset($settings->twitter)   @if($settings->twitter != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->twitter }}"><span class="fa-brands fa-twitter"></span></a></li>@endif @endisset
+            @isset($settings->linkedin)  @if($settings->linkedin != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->linkedin }}"><span class="fa-brands fa-linkedin"></span></a></li>@endif @endisset
+            @isset($settings->telegram)  @if($settings->telegram != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->telegram }}"><span class="fa-brands fa-telegram"></span></a></li>@endif @endisset
+            @isset($settings->discord)   @if($settings->discord != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->discord }}"><span class="fa-brands fa-discord"></span></a></li>@endif @endisset
+            @isset($settings->reddit)    @if($settings->reddit != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->reddit }}"><span class="fa-brands fa-reddit"></span></a></li>@endif @endisset
+            @isset($settings->medium)    @if($settings->medium != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->medium }}"><span class="fa-brands fa-medium"></span></a></li>@endif @endisset
+            @isset($settings->youtube)   @if($settings->youtube != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $settings->youtube }}"><span class="fa-brands fa-youtube"></span></a></li>@endif @endisset
           </ul>
           <br>
           <p>

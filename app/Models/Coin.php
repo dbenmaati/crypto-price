@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Coin extends Model
 {
     use HasFactory;
-    protected $fillable = ['slug',];
+       
+    protected $fillable = [
+        'slug',
+        'logo',
+    ];
+
+    protected $casts = [
+        'logo' => 'array',
+    ];
 
     public $timestamps = true;
 }

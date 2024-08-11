@@ -14,7 +14,12 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('site_title',255);
-            $table->string('site_logo',255)->nullable();
+
+            $table->string('site_logo_light',255)->nullable();
+            $table->string('site_logo_dark',255)->nullable();
+            $table->integer('site_logo_heigh')->nullable();
+            $table->integer('site_logo_width')->nullable();
+
             $table->string('site_favicon',255)->nullable();
             $table->text('meta_description')->nullable();
             $table->string('meta_keywords',255)->nullable();
@@ -43,7 +48,12 @@ return new class extends Migration
         // Insert initial data
         DB::table('settings')->insert([
             'site_title' => 'My Website',
-            'site_logo' => '"site-logo.png"',
+
+            'site_logo_light' => '"site-logo.png"',
+            'site_logo_dark' => '"site-logo.png"',
+            'site_logo_heigh' => 32,
+            'site_logo_width' => 112,
+
             'site_favicon' => '"site-favicon.png"',
             'meta_description' => 'This is a meta description for my website.',
             'meta_keywords' => 'keywords, my, website',

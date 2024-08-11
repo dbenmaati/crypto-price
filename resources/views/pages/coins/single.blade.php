@@ -79,21 +79,27 @@
               <br>
               
               @isset($coin->website)
+              @if($coin->website != 'NULL')
               <div class="button-loadmore">
                 <a style="width: 100%; border: 2px solid orange;" href="{{ $coin->website }}">Website</a>
               </div>
+              @endif
               @endisset
 
               @isset($coin->whitepaper)
+              @if($coin->whitepaper != 'NULL')
               <div class="button-loadmore">
                 <a style="width: 100%; border: 2px solid orange;" href="{{ $coin->whitepaper }}">Whitepaper</a>
               </div>
+              @endif
               @endisset
 
               @isset($coin->explorer)
+              @if($coin->explorer != 'NULL')
               <div class="button-loadmore">
                 <a style="width: 100%; border: 2px solid orange;" href="{{ $coin->explorer }}">Explorer</a>
               </div>
+              @endif
               @endisset
               
               <br><hr><br>
@@ -113,9 +119,9 @@
               <br>
               <hr>
               <ul style="display: flex; justify-content: center; align-items: center; font-size: 1.7em; padding: 0; margin: 0;">
-                @isset($coin->twitter)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $coin->twitter }}"><span class="fa-brands fa-twitter"></span></a></li>@endisset
-                @isset($coin->telegram)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $coin->telegram }}"><span class="fa-brands fa-telegram"></span></a></li>@endisset
-                @isset($coin->discord)<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $coin->discord }}"><span class="fa-brands fa-discord"></span></a></li>@endisset
+                @isset($coin->twitter)  @if($coin->twitter != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $coin->twitter }}"><span class="fa-brands fa-twitter"></span></a></li>    @endif @endisset
+                @isset($coin->telegram) @if($coin->telegram != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $coin->telegram }}"><span class="fa-brands fa-telegram"></span></a></li> @endif @endisset
+                @isset($coin->discord)  @if($coin->discord != 'NULL')<li><a style="font-size: 0.8em; margin-right: 15px;" href="{{ $coin->discord }}"><span class="fa-brands fa-discord"></span></a></li>    @endif @endisset
               </ul>
               
             </div>
